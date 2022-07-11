@@ -1,0 +1,41 @@
+﻿@model CurrencyModel
+
+@{
+    ViewData["Title"] = "Converter";
+}
+
+<div class="text-center">
+    <h1>@ViewData["Title"]</h1>
+    <p>Enter the amount (GBP) you want to convert and select the desired currency</a>.</p>
+
+     @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+        {
+            @Html.TextBoxFor(m => m.Amount)
+
+            <br />
+
+            <span asp-validation-for="Amount" class="text-danger" ></span>
+
+             <p> to </p>
+              
+             @Html.DropDownListFor(m => m.CurrencyId, new List<SelectListItem>
+                 { new SelectListItem{Text="AUD", Value="1"},
+                 new SelectListItem{Text="EUR", Value="2"},
+                 new SelectListItem{Text="USD", Value="3"}
+                 }, "Please select", 
+                 new { @class = "currency-picker" })
+
+              <br />
+
+              <span asp-validation-for="CurrencyId" class="text-danger" ></span>
+
+
+              <br />
+
+              <p> @ViewBag.conversion @ViewBag.ticker </p>
+               
+              <button class="submit-btn" type="submit" value="Convert"> Convert </button>
+
+        }
+
+</div>
