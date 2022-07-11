@@ -2,7 +2,7 @@
 
 A currency converter application written with .NET MVC.
 
-The application makes use of an SQLite database for storing a log of all past currency conversion in a local database file.
+The application makes use of an SQLite database for storing a log of all past currency conversions in a local database file.
 
 ## Installation / Setup
 
